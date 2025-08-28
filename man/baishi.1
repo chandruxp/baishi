@@ -1,0 +1,167 @@
+.TH BAISHI 1 "December 2024" "Version 1.0.0" "User Commands"
+.SH NAME
+baishi \- AI-powered shell wrapper that converts natural language to shell commands
+.SH SYNOPSIS
+.B baishi
+[\fIOPTIONS\fR] [\fICOMMAND\fR]
+.SH DESCRIPTION
+.B baishi
+is an intelligent shell wrapper that uses AI to convert natural language descriptions
+into executable shell commands. It supports multiple AI providers including OpenAI,
+Google AI, Anthropic, Ollama, and OpenRouter.
+.PP
+When invoked without arguments, baishi enters interactive mode where you can type
+your command description. You can also pass the description directly as arguments.
+.SH OPTIONS
+.TP
+.B \-n, \-\-no\-confirm
+Execute generated commands without confirmation prompt
+.TP
+.B \-f, \-\-format
+Format command output using AI for better readability
+.TP
+.B \-r, \-\-raw
+Show raw command output without any formatting
+.TP
+.B \-p, \-\-provider \fIPROVIDER\fR
+Specify AI provider to use (openai, google, anthropic, ollama, openrouter)
+.TP
+.B \-m, \-\-model \fIMODEL\fR
+Specify the AI model to use
+.TP
+.B \-c, \-\-config
+Display the configuration file path
+.TP
+.B \-s, \-\-setup
+Run the interactive setup wizard
+.TP
+.B \-H, \-\-history
+Show command history
+.TP
+.B \-h, \-\-help
+Display help information
+.TP
+.B \-V, \-\-version
+Display version information
+.SH COMMANDS
+.TP
+.B setup
+Run the interactive setup wizard to configure baishi
+.TP
+.B config
+Display current configuration settings
+.TP
+.B history [\-l \fIN\fR]
+Show command history (optionally limit to N entries)
+.SH CONFIGURATION
+Configuration is stored in \fI~/.baishi/baishi_profile\fR and loaded on startup.
+.PP
+Environment variables that can be set:
+.TP
+.B BAISH_PROVIDER
+Default AI provider to use
+.TP
+.B BAISH_API_KEY
+API key for the selected provider
+.TP
+.B BAISH_MODEL
+AI model to use
+.TP
+.B BAISH_FORMAT_OUTPUT
+Whether to format output with AI (true/false)
+.TP
+.B BAISH_CONFIRM
+Whether to confirm before execution (true/false)
+.TP
+.B BAISH_SAVE_HISTORY
+Whether to save command history (true/false)
+.TP
+.B BAISH_OLLAMA_HOST
+Custom Ollama host URL (for local models)
+.TP
+.B BAISH_OPENROUTER_API_KEY
+OpenRouter API key
+.SH EXAMPLES
+.PP
+Interactive mode:
+.RS
+.B baishi
+.RE
+.PP
+Direct command:
+.RS
+.B baishi "list all python files modified today"
+.RE
+.PP
+Without confirmation:
+.RS
+.B baishi -n "show disk usage"
+.RE
+.PP
+With formatted output:
+.RS
+.B baishi -f "check system memory"
+.RE
+.PP
+Using specific provider:
+.RS
+.B baishi -p ollama "find large files"
+.RE
+.PP
+Setup wizard:
+.RS
+.B baishi setup
+.RE
+.SH FILES
+.TP
+.I ~/.baishi/baishi_profile
+User configuration file
+.TP
+.I ~/.baishi/history.json
+Command history file
+.SH EXIT STATUS
+.TP
+.B 0
+Successful execution
+.TP
+.B 1
+General error or command failure
+.TP
+.B Non-zero
+Exit code from executed shell command
+.SH SUPPORTED PROVIDERS
+.TP
+.B OpenAI
+GPT-4, GPT-3.5 models (requires API key)
+.TP
+.B Google AI
+Gemini models (requires API key)
+.TP
+.B Anthropic
+Claude models (requires API key)
+.TP
+.B Ollama
+Local models (no API key required)
+.TP
+.B OpenRouter
+Access to multiple providers (requires API key)
+.SH SECURITY
+Always review generated commands before execution. Use the confirmation prompt
+(enabled by default) to prevent accidental execution of dangerous commands.
+Never store sensitive API keys in plain text; use the setup wizard for secure
+configuration.
+.SH BUGS
+Report bugs at: https://github.com/yourusername/baishi/issues
+.SH AUTHOR
+Written by the Baishi contributors.
+.SH COPYRIGHT
+Copyright © 2024 Baishi Project. License: MIT
+.br
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+.SH SEE ALSO
+.BR bash (1),
+.BR zsh (1),
+.BR sh (1)
+.PP
+Full documentation at: https://baishi.readthedocs.io/

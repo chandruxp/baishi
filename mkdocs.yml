@@ -1,0 +1,87 @@
+site_name: Baishi - AI-Powered Shell Wrapper
+site_description: Convert natural language to shell commands with AI
+site_url: https://baishi.readthedocs.io
+repo_url: https://github.com/yourusername/baishi
+repo_name: baishi
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+    - Configuration: getting-started/configuration.md
+  - User Guide:
+    - Basic Usage: guide/basic-usage.md
+    - AI Providers: guide/providers.md
+    - Advanced Features: guide/advanced.md
+    - Command History: guide/history.md
+  - Providers:
+    - OpenAI: providers/openai.md
+    - Google AI: providers/google.md
+    - Anthropic: providers/anthropic.md
+    - Ollama: providers/ollama.md
+    - OpenRouter: providers/openrouter.md
+  - API Reference:
+    - Configuration: api/configuration.md
+    - Commands: api/commands.md
+    - Environment Variables: api/environment.md
+  - Contributing: contributing.md
+  - FAQ: faq.md
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - attr_list
+  - md_in_html
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/baishi
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/yourusername
+  analytics:
+    provider: google
+    property: UA-XXXXXXXX-X
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
